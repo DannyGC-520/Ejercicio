@@ -1,0 +1,41 @@
+@model List<Ejercicio.Models.Number>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Números Par e Impar</title>
+  </head>
+<body class="content m-5">
+
+<h1>Números Pares</h1><br>
+
+<form action="/Number/index" method="POST">    
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label col-md-1" for="name">Número:</label>
+    <input class="form-control col-md-3 m-1" type="number" name="InitalValue" placeholder="Ingrese un número" min="1"/>
+    <input class="btn btn-primary" type="submit" value="Generar" />
+    </div>
+</form>
+@if(Model!=null){
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col" >Número</th>
+            <th scope="col">Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var number in Model){
+        <tr>
+            <th scope="row">@number.Value</th>
+            <td>@number.Type</td>
+        </tr>
+    }
+    </tbody>
+</table>
+}
+
+</body>
+</html>
